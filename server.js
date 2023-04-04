@@ -8,7 +8,7 @@ const port = 8080;
 
 app.use("/", routes);
 
-app.listen(PORT, () => {
+app.listen(port, () => {
     console.log(`Listening in ${port}`);
 });
 
