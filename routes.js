@@ -7,9 +7,9 @@ route.get("/", function (req, res) {
     res.send("Welcome to backend");
 });
 
-route.post("/notes/create", createNote);
-route.get("/notes/get", getNotes);
-route.post("/notes/update", updateNote);
-route.post("/notes/delete", deleteNote);
+route.post("/noteSchema/create", createNote);
+route.get("/noteSchema/get", getNotes);
+route.post("/noteSchema/update", updateNote);
+route.post("/noteSchema/delete", deleteNote);
 
 export default route;
