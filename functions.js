@@ -11,7 +11,15 @@ export const createNote = async (req, res) => {
             res.status(200).json({
                 success: true,
                 message: "Notes created successfully!",
+                data: null
             });
+        }
+        else {
+            res.status(404).json({
+                success: false,
+                message: "Note not created",
+                data: null
+            })
         }
     } catch (error) {
         console.log(error);
@@ -26,8 +34,15 @@ export const getNotes = async (req, res) => {
             res.status(200).json({
                 success: true,
                 message: "Notes fetched successfully!",
-                notes,
+                data: notes,
             });
+        }
+        else {
+            res.status(404).json({
+                success: false,
+                message: "Data not fetched",
+                data: null
+            })
         }
     } catch (error) {
         console.log(error);
@@ -47,7 +62,15 @@ export const updateNote = async (req, res) => {
             res.status(200).json({
                 success: true,
                 message: "Note Updated successfully!",
+                data: null
             });
+        }
+        else {
+            res.status(404).json({
+                success: false,
+                message: "Note failed to update",
+                data: null
+            })
         }
     } catch (error) {
         console.log(error);
@@ -64,6 +87,13 @@ export const deleteNote = async (req, res) => {
                 success: true,
                 message: "Note Deleted successfully!",
             });
+        }
+        else {
+            res.status(404).json({
+                success: false,
+                message: "Note was not deleted",
+                data: null
+            })
         }
     } catch (error) {
         console.log(error);
