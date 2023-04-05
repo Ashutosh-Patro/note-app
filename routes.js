@@ -9,7 +9,7 @@ route.get("/", function (req, res) {
 
 route.post("/noteSchema/create", createNote);
 route.get("/noteSchema/get", getNotes);
-route.post("/noteSchema/update", updateNote);
-route.post("/noteSchema/delete", deleteNote);
+route.put("/noteSchema/update", updateNote);
+route.delete("/noteSchema/delete", deleteNote);
 
 export default route;
