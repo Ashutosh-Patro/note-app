@@ -12,7 +12,18 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use("/", routes);
+app.use("/api", routes);
+
+
+app.use((error, req, res, next) => {
+    if (error) {
+        res.status(error.status).send({
+            data: error.data,
+            message: error.message,
+            success: false
+        })
+    }
+})
 
 app.listen(port, () => {
     console.log(`Listening in ${port}`);

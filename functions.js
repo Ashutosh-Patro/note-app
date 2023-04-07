@@ -1,12 +1,13 @@
 import notesSchema from "./schema.js";
 
-export const createNote = async (req, res) => {
+export const createNote = async (req, res, next) => {
     try {
         const { title, content } = req.body;
         let createNote = await notesSchema.create({
             title,
             content,
         });
+
         if (createNote) {
             res.status(200).json({
                 success: true,
@@ -22,10 +23,20 @@ export const createNote = async (req, res) => {
             })
         }
     } catch (error) {
+        // next(new HttpError('', 404, data));
         console.log(error);
         res.status(400).json({ message: error.message });
     }
 };
+// class HttpError extends Error {
+
+//     constructor(message, status, data){
+//         super(message);
+//         this.status = status;
+//         this.data = data;
+//     }
+// }
+// const err = new HttpError('', 404, null);
 
 export const getNotes = async (req, res) => {
     try {
