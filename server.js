@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import express from "express";
 import routes from "./routes.js"
 import cors from "cors";
+import { urlData } from "./config.js";
 
 const app = express()
 
@@ -19,7 +20,7 @@ app.listen(port, () => {
 
 async function connection() {
     await mongoose
-        .connect("mongodb+srv://ashutosh:1234@cluster0.9cir3a3.mongodb.net/noteApp?retryWrites=true&w=majority", {
+        .connect(`mongodb+srv://${urlData.name}:${urlData.password}@cluster0.9cir3a3.mongodb.net/${urlData.dbName}?retryWrites=true&w=majority`, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         })
